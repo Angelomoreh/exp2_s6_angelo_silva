@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "nombre": "EA Sports FC 26",
+    "categoria": "Deportes",
+    "plataforma": "PlayStation",
+    "precio": 59990,
+    "descripcion": "Compite con tus equipos favoritos y disfruta diferentes modos de juego.",
+    "imagen": "assets/img/fc26.svg"
+  },
+  {
+    "id": 2,
+    "nombre": "The Legend of Zelda",
+    "categoria": "Aventura",
+    "plataforma": "Nintendo",
+    "precio": 49990,
+    "descripcion": "Explora un gran mundo lleno de desafíos, secretos y aventuras.",
+    "imagen": "assets/img/zelda.svg"
+  },
+  {
+    "id": 3,
+    "nombre": "Minecraft",
+    "categoria": "Construcción",
+    "plataforma": "Xbox",
+    "precio": 24990,
+    "descripcion": "Construye, explora y sobrevive en un mundo formado por bloques.",
+    "imagen": "assets/img/minecraft.svg"
+  },
+  {
+    "id": 4,
+    "nombre": "God of War Ragnarök",
+    "categoria": "Acción",
+    "plataforma": "PlayStation",
+    "precio": 44990,
+    "descripcion": "Acompaña a Kratos y Atreus en una historia inspirada en la mitología nórdica.",
+    "imagen": "assets/img/gow.svg"
+  },
+  {
+    "id": 5,
+    "nombre": "Mario Kart 8 Deluxe",
+    "categoria": "Carreras",
+    "plataforma": "Nintendo",
+    "precio": 47990,
+    "descripcion": "Disfruta carreras rápidas y entretenidas junto a personajes de Nintendo.",
+    "imagen": "assets/img/mariokart.svg"
+  },
+  {
+    "id": 6,
+    "nombre": "Grand Theft Auto V",
+    "categoria": "Mundo abierto",
+    "plataforma": "PC",
+    "precio": 29990,
+    "descripcion": "Recorre Los Santos y completa misiones en un amplio mundo abierto.",
+    "imagen": "assets/img/gta.svg"
+  }
+]

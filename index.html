@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NextLevel Games, tienda de videojuegos desarrollada con Bootstrap 5 y JavaScript.">
+  <title>NextLevel Games | Semana 6</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm" aria-label="Navegación principal">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#inicio">NextLevel Games</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPrincipal"
+          aria-controls="navbarPrincipal" aria-expanded="false" aria-label="Abrir menú de navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarPrincipal">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+            <li class="nav-item"><button class="nav-link btn btn-link filtro-categoria" type="button" data-categoria="PlayStation">PlayStation</button></li>
+            <li class="nav-item"><button class="nav-link btn btn-link filtro-categoria" type="button" data-categoria="Nintendo">Nintendo</button></li>
+            <li class="nav-item"><button class="nav-link btn btn-link filtro-categoria" type="button" data-categoria="Xbox">Xbox</button></li>
+            <li class="nav-item"><button class="nav-link btn btn-link filtro-categoria" type="button" data-categoria="PC">PC</button></li>
+          </ul>
+
+          <a class="btn btn-outline-light" href="#carrito" aria-label="Ir al carrito de compras">
+            Carrito <span id="contador-carrito" class="badge text-bg-primary ms-1">0</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero d-flex align-items-center text-white">
+      <div class="container py-5">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <span class="badge rounded-pill text-bg-primary mb-3">Videojuegos y accesorios</span>
+            <h1 class="display-4 fw-bold">Tu próxima aventura comienza aquí</h1>
+            <p class="lead text-white-50 mb-4">
+              Catálogo de videojuegos para PlayStation, Xbox, Nintendo y PC.
+              Los productos se cargan dinámicamente desde un archivo JSON utilizando Fetch API.
+            </p>
+            <a href="#productos" class="btn btn-primary btn-lg">Ver catálogo</a>
+          </div>
+          <div class="col-lg-5">
+            <div class="hero-card p-4 rounded-4">
+              <h2 class="h4">Actividad Semana 6</h2>
+              <p class="mb-0">Bootstrap 5, DOM, eventos, carrito, búsqueda y Fetch API en un mismo proyecto.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="productos" class="py-5">
+      <div class="container">
+        <div class="row align-items-end g-3 mb-4">
+          <div class="col-lg-6">
+            <p class="text-primary text-uppercase fw-bold small mb-1">Catálogo dinámico</p>
+            <h2 class="fw-bold mb-1">Videojuegos disponibles</h2>
+            <p id="estado-filtro" class="text-secondary mb-0">Mostrando todos los productos.</p>
+          </div>
+
+          <div class="col-lg-6">
+            <form id="form-busqueda" class="row g-2" role="search">
+              <div class="col-sm-9">
+                <label for="busqueda" class="visually-hidden">Buscar videojuego</label>
+                <input id="busqueda" class="form-control form-control-lg" type="search"
+                  placeholder="Buscar por nombre o categoría" autocomplete="off">
+              </div>
+              <div class="col-sm-3 d-grid">
+                <button class="btn btn-dark btn-lg" type="submit">Buscar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="mensaje-error" class="alert alert-danger d-none" role="alert"></div>
+        <div id="mensaje-vacio" class="alert alert-info d-none" role="status">No se encontraron productos con ese criterio.</div>
+
+        <!-- Los productos son creados por JavaScript a partir del JSON local. -->
+        <div id="lista-productos" class="row g-4" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="carrito" class="py-5 bg-light border-top">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <p class="text-primary text-uppercase fw-bold small mb-1">Manipulación del DOM</p>
+            <h2 class="fw-bold">Resumen del carrito</h2>
+            <p class="text-secondary">Cada clic en “Agregar al carrito” actualiza este resumen sin recargar la página.</p>
+
+            <div id="carrito-contenido" class="card border-0 shadow-sm">
+              <div class="card-body">
+                <p class="text-secondary mb-0">El carrito está vacío.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="card border-0 shadow-sm resumen-compra">
+              <div class="card-body p-4">
+                <h3 class="h5 fw-bold">Total de compra</h3>
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                  <span>Total</span>
+                  <strong id="total-carrito" class="fs-4">$0</strong>
+                </div>
+                <button id="vaciar-carrito" class="btn btn-outline-danger w-100 mt-4" type="button" disabled>Vaciar carrito</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <p class="text-primary text-uppercase fw-bold small mb-1">NextLevel Games</p>
+            <h2 class="fw-bold">¿Necesitas ayuda?</h2>
+            <p class="text-secondary mb-0">Escríbenos a contacto@nextlevelgames.cl o revisa nuestras redes sociales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark text-white py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <p class="mb-0">© 2026 NextLevel Games</p>
+      <div class="d-flex gap-3">
+        <a class="link-light" href="#inicio">Inicio</a>
+        <a class="link-light" href="#productos">Productos</a>
+        <a class="link-light" href="mailto:contacto@nextlevelgames.cl">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="notificacion" class="toast-container position-fixed bottom-0 end-0 p-3" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

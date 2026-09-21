@@ -1,0 +1,95 @@
+:root {
+  --color-principal: #2563eb;
+  --color-principal-oscuro: #1d4ed8;
+  --color-oscuro: #0f172a;
+  --color-superficie: #172554;
+  --color-fondo: #f1f5f9;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-fondo);
+  color: #334155;
+}
+
+section {
+  scroll-margin-top: 78px;
+}
+
+.hero {
+  min-height: 520px;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.45), transparent 30%),
+    linear-gradient(135deg, var(--color-oscuro), var(--color-superficie));
+}
+
+.hero-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+}
+
+.navbar .btn-link {
+  text-decoration: none;
+}
+
+.producto-card {
+  height: 100%;
+  border: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.14);
+}
+
+.producto-card img {
+  height: 220px;
+  object-fit: cover;
+  background: #e2e8f0;
+}
+
+.producto-card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.producto-card .descripcion {
+  color: #64748b;
+  flex-grow: 1;
+}
+
+.precio-producto {
+  color: var(--color-oscuro);
+  font-size: 1.2rem;
+}
+
+.resumen-compra {
+  position: sticky;
+  top: 95px;
+}
+
+.item-carrito + .item-carrito {
+  border-top: 1px solid #e2e8f0;
+}
+
+@media (max-width: 767.98px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .producto-card img {
+    height: 200px;
+  }
+
+  .resumen-compra {
+    position: static;
+  }
+}
